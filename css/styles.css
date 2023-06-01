@@ -44,7 +44,8 @@ p {
   padding: 24px 0;
 }
 .link:hover,
-.link:focus {
+.link:focus,
+.header-link.current {
   color: var(--pressed-state-color);
 }
 .logo {
@@ -152,6 +153,24 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--dark-title-color);
+  position: relative;
+  display: block;
+}
+.header-link:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--pressed-state-color);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 150ms linear;
+}
+.header-link:hover:after,
+.header-link.current:after {
+  transform: scaleX(1);
 }
 
 .address {
@@ -207,6 +226,48 @@ img {
   height: 56px;
   border: none;
   border-radius: 4px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+}
+
+.modal {
+  width: 408px;
+  height: 584px;
+  position: absolute;
+  top: 47.3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--modal-background-color);
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: grey;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #ff6c00;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /**--------------- DESCRIPTION ---------------*/
