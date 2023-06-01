@@ -42,6 +42,7 @@ p {
   font-family: inherit;
   text-decoration: none;
   padding: 24px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link:hover,
 .link:focus,
@@ -90,6 +91,7 @@ p {
   display: inline-block;
   font-family: inherit;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn:hover,
 .btn:focus {
@@ -235,13 +237,18 @@ img {
   width: 100%;
   height: 100%;
   background: rgba(46, 47, 66, 0.4);
+  transition: opacity 500ms linear, visibility 500ms linear;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .modal {
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   position: absolute;
-  top: 47.3%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--modal-background-color);
@@ -252,16 +259,26 @@ img {
   position: absolute;
   right: 10px;
   top: 10px;
-  background-color: grey;
-  color: white;
-  width: 30px;
-  height: 30px;
+  background-color: var(--light-accent-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--dark-osh-color);
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.close-button:hover {
-  background-color: #ff6c00;
+.close-button:hover,
+.close-button:focus {
+  background-color: var(--pressed-state-color);
+  color: var(--white-background-color);
+}
+
+.close-icon {
+  fill: currentColor;
 }
 
 .is-hidden {
@@ -363,6 +380,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .soc-media-link:hover,
 .soc-media-link:focus {
@@ -383,6 +401,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-link:hover,
 .customers-link:focus {
@@ -451,6 +471,7 @@ img {
 .footer-media-link:hover,
 .footer-media-link:focus {
   background-color: var(--success-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /**------------------- PORTFOLIO buttons -----------------*/
 .portfolio {
@@ -476,6 +497,7 @@ img {
   border: 1px solid transparent;
   box-shadow: 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pf-btn-list {
@@ -504,6 +526,7 @@ img {
 .pf-link {
   display: block;
   padding: 0;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pf-link:hover,
